@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "062fb4b58924f99c268de5fc535dc85a",
+    "content-hash": "b9703eb5c3c787887146045e743ad033",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -946,11 +946,11 @@
         },
         {
             "name": "kadoo/customers",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:kadoomx/kadoo-customers.git",
-                "reference": "23ca8846ca31f3577bb84bce9447546c9e6f9383"
+                "reference": "24c5d7bf7f6d2fed0e4cea510fd7404117d398a7"
             },
             "require": {
                 "illuminate/database": "^7.1",
@@ -977,7 +977,7 @@
                 }
             ],
             "description": "Kadoo Customers Laravel Package",
-            "time": "2020-03-16T08:23:39+00:00"
+            "time": "2020-03-16T10:58:37+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -6418,9 +6418,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "kadoo/customers": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
