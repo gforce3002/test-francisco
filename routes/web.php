@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
+
 Route::middleware('auth')->group(function() {
     Route::get('/', 'DashboardController@index');
     Route::get('/home', 'DashboardController@index');
@@ -34,3 +37,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile', 'ProfileController@index');
     Route::get('/password', 'ProfileController@password');
 });
+
+Route::get('/logout', function () {
+    \Illuminate\Support\Facades\Auth::logout();
+    return response()->redirectTo('/');
+})->middleware('auth');

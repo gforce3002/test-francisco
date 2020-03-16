@@ -1,5 +1,5 @@
 <!-- Topbar Start -->
-<div class="navbar-custom">
+<div class="navbar-custom navbar-custom-light">
     <ul class="list-unstyled topnav-menu float-right mb-0">
 
         <li class="dropdown notification-list">
