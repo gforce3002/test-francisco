@@ -13,9 +13,9 @@
 
                             <div class="card-body p-4">
 
-                                <div class="text-center w-75 m-auto pb-2">
+                                <div class="text-center w-75 m-auto pb-3">
                                     <a href="/">
-                                        <span><img src="{{ env('LOGO_URL', '/images/logo.png') }}" alt="" height="122"></span>
+                                        <span><img src="{{ env('LOGO_URL', '/images/kadoo.png') }}" class="img-fluid" alt=""></span>
                                     </a>
                                 </div>
 
