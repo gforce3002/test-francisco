@@ -13,9 +13,9 @@
 
                             <div class="card-body p-4">
 
-                                <div class="text-center w-75 m-auto pb-2">
+                                <div class="text-center w-75 m-auto pb-3">
                                     <a href="/">
-                                        <span><img src="{{ env('LOGO_URL', '/images/logo.png') }}" alt="" height="122"></span>
+                                        <span><img src="{{ env('LOGO_URL', '/images/kadoo.png') }}" class="img-fluid" alt=""></span>
                                     </a>
                                 </div>
 
@@ -62,10 +62,10 @@
                                     <h5 class="mt-3 text-muted">Inicia Sesión con:</h5>
                                     <ul class="social-list list-inline mt-3 mb-0">
                                         <li class="list-inline-item">
-                                            <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                            <a href="/auth/facebook" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                            <a href="/auth/google" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
                                         </li>
                                     </ul>
                                 </div>

@@ -1,5 +1,5 @@
 <!-- Topbar Start -->
-<div class="navbar-custom">
+<div class="navbar-custom navbar-custom-light">
     <ul class="list-unstyled topnav-menu float-right mb-0">
 
         <li class="dropdown notification-list">
@@ -40,10 +40,10 @@
     <div class="logo-box">
         <a href="/" class="logo text-center">
             <span class="logo-lg">
-                <img src="{{ env('LOGO_URL', '/images/logo.png') }}" alt="" height="42">
+                <img src="{{ env('LOGO_URL', '/images/kadoo.png') }}" alt="" height="42">
             </span>
             <span class="logo-sm">
-                <img src="{{ env('LOGO_URL', '/images/logo.png') }}" alt="" height="24">
+                <img src="{{ env('LOGO_URL', '/images/kadoo.png') }}" alt="" height="24">
             </span>
         </a>
     </div>
