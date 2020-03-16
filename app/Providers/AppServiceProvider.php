@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -15,16 +17,26 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $menu = [];
+        $modules = [
+            'kadoo-customers',
+            'kadoo-sales',
+            'kadoo-calendar'
+        ];
 
-        if (!empty(config('kadoo-customers.url'))) {
-            $menu[] = [
-                'icon' => config('kadoo-customers.icon'),
-                'url' => config('kadoo-customers.url'),
-                'label' => config('kadoo-customers.label')
-            ];
+        foreach ($modules as $module) {
+            if (config($module . '.enabled', false)) {
+                foreach (config($module . '.menu') as $menuItem) {
+                    $menu[] = $menuItem;
+                }
+            }
         }
 
         View::share('menu', $menu);
+
+        DB::listen(function ($query) {
+            Log::info($query->sql);
+            Log::info(json_encode($query->bindings));
+        });
     }
 
     /**

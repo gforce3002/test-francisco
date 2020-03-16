@@ -950,7 +950,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:kadoomx/kadoo-customers.git",
-                "reference": "ccf9d00af93bd15637a56d404b9d20c08acefb68"
+                "reference": "23ca8846ca31f3577bb84bce9447546c9e6f9383"
             },
             "require": {
                 "illuminate/database": "^7.1",
@@ -977,7 +977,7 @@
                 }
             ],
             "description": "Kadoo Customers Laravel Package",
-            "time": "2020-03-16T05:13:47+00:00"
+            "time": "2020-03-16T08:23:39+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
