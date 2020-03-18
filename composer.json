@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "kadoo/manager-v7",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Kadoo Manager v7",
     "keywords": [
         "framework",
         "laravel"
