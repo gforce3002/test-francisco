@@ -1,5 +1,6 @@
 <?php
 
+use Kadoo\Logger\Service\Logger;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
@@ -30,7 +31,7 @@ return [
     |
     | Available Drivers: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog",
-    |                    "custom", "stack"
+    |                    "custom", "stack", "kadoo"
     |
     */
 
@@ -99,6 +100,11 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'kadoo' => [
+            'driver' => 'monolog',
+            'handler' => Logger::class
+        ]
     ],
 
 ];
