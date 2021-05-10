@@ -11,6 +11,15 @@ this is delivered with:
 
 ## How to install
 
+This needs to have an active SSH key added to gitlab to add it you can go to http://build.imass.solutions/profile/keys 
+and copy the content of your `~/.ssh/id_rsa.pub` key.
+
+If you don't have a SSH key you can just:
+
+```shell
+ssh-keygen
+```
+
 ```shell script
 composer create-project --repository="{\"url\":\"git@build.imass.solutions:microservices/managerv7.git\", \"type\": \"git\"}" --stability=dev imass/manager-v7 MYCOOLPROJECT dev-master
 cd MYCOOLPROJECT
