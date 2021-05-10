@@ -1,7 +1,5 @@
 <?php
 
-use Kadoo\Logger\LoggerServiceProvider;
-
 return [
 
     /*
@@ -176,7 +174,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        LoggerServiceProvider::class
     ],
 
     /*

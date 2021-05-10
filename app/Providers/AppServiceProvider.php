@@ -17,19 +17,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $menu = [];
-        $modules = [
-            'kadoo-customers',
-            'kadoo-sales',
-            'kadoo-calendar'
-        ];
-
-        foreach ($modules as $module) {
-            if (config($module . '.enabled', false)) {
-                foreach (config($module . '.menu') as $menuItem) {
-                    $menu[] = $menuItem;
-                }
-            }
-        }
 
         View::share('menu', $menu);
 
