@@ -1,30 +1,18 @@
 {
-    "name": "kadoo/manager-v7",
+    "name": "imass/manager-v7",
     "type": "project",
-    "description": "Kadoo Manager v7",
+    "description": "iMass Manager v7",
     "keywords": [
         "framework",
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:kadoomx/kadoo-customers.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:kadoomx/kadoo-logger-service.git"
-        }
-    ],
     "require": {
         "php": "^7.2.5",
         "aws/aws-sdk-php": "^3.133",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "kadoo/customers": "v1.0.0",
-        "kadoo/logger-service": "dev-master",
         "laravel/framework": "^7.0",
         "laravel/passport": "^8.4",
         "laravel/socialite": "^4.3",
