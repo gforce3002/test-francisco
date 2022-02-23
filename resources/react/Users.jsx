@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import AdminHeader from "./AdminHeader";
 
 export default class Users extends Component {
 

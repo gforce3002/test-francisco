@@ -7,6 +7,13 @@
                 <li class="menu-title">Menú</li>
 
                 <li>
+                    <a href="/coverages">
+                        <i class="fa fa-money-bill"></i>
+                        <span> Coberturas</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/users">
                         <i class="fa fa-users"></i>
                         <span> Usuarios</span>

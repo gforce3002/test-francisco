@@ -26,11 +26,19 @@ Route::middleware('auth:api')->group(function () {
     });
 
     Route::prefix('user')->group(function () {
-        Route::post('/', 'Api\UserController@create')->middleware('role:admin');
-        Route::get('/', 'Api\UserController@getList')->middleware('role:admin');
-        Route::get('/{id}', 'Api\UserController@get')->middleware('role:admin');
-        Route::put('/{id}', 'Api\UserController@update')->middleware('role:admin');
-        Route::delete('/{id}', 'Api\UserController@remove')->middleware('role:admin');
+        Route::post('/', 'Api\UserController@create')->middleware('permission:user-edit');
+        Route::get('/', 'Api\UserController@getList')->middleware('permission:user-index');
+        Route::get('/{id}', 'Api\UserController@get')->middleware('permission:user-index');
+        Route::put('/{id}', 'Api\UserController@update')->middleware('permission:user-edit');
+        Route::delete('/{id}', 'Api\UserController@remove')->middleware('permission:user-edit');
+    });
+
+    Route::prefix('coverage')->group(function () {
+        Route::post('/', 'Api\CoverageController@create')->middleware('permission:coverage-edit');
+        Route::get('/', 'Api\CoverageController@getList')->middleware('permission:coverage-index');
+        Route::get('/{id}', 'Api\CoverageController@get')->middleware('permission:coverage-index');
+        Route::put('/{id}', 'Api\CoverageController@update')->middleware('permission:coverage-edit');
+        Route::delete('/{id}', 'Api\CoverageController@remove')->middleware('permission:coverage-edit');
     });
 
     Route::prefix('/role')->group(function () {
