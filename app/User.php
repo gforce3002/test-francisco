@@ -188,7 +188,7 @@ class User extends Authenticatable
             foreach ($this->cachedRoles() as $role) {
                 // Validate against the Permission table
                 foreach ($role->cachedPermissions() as $perm) {
-                    if (str_is( $permission, $perm->name) ) {
+                    if ($permission == $perm->name) {
                         return true;
                     }
                 }

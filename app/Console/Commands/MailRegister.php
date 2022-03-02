@@ -4,7 +4,9 @@ namespace App\Console\Commands;
 
 use App\Mail\RegisterUser;
 use App\User;
+use Exception;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class MailRegister extends Command
@@ -40,11 +42,18 @@ class MailRegister extends Command
      */
     public function handle()
     {
-        $email = $this->argument('email');
-        $password = $this->argument('password');
+        try {
+            $email = $this->argument('email');
+            $password = $this->argument('password');
 
-        $user = User::where('email', $email)->first();
+            $user = User::where('email', $email)->first();
 
-        Mail::to($email)->send(new RegisterUser($user, $password, false));
+            Mail::to($email)->send(new RegisterUser($user, $password, false));
+        } catch (Exception $e) {
+            Log::error('MailRegister could not be sent', [
+                'email' => $email,
+                'password' => $password,
+            ]);
+        }
     }
 }
