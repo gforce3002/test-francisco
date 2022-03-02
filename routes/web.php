@@ -29,12 +29,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/{id}', 'UsersController@get')->middleware('permission:user-edit');
     });
 
-    Route::prefix('/coverages')->group(function() {
-        Route::get('/', 'CoveragesController@index')->middleware('permission:coverage-index');
-        Route::get('/create', 'CoveragesController@create')->middleware('permission:coverage-edit');
-        Route::get('/{id}', 'CoveragesController@get')->middleware('permission:coverage-edit');
-    });
-
     Route::prefix('/api')->group(function () {
         Route::get('/', 'ApiController@index');
         Route::get('/create', 'ApiController@create');

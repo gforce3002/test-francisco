@@ -33,14 +33,6 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/{id}', 'Api\UserController@remove')->middleware('permission:user-edit');
     });
 
-    Route::prefix('coverage')->group(function () {
-        Route::post('/', 'Api\CoverageController@create')->middleware('permission:coverage-edit');
-        Route::get('/', 'Api\CoverageController@getList')->middleware('permission:coverage-index');
-        Route::get('/{id}', 'Api\CoverageController@get')->middleware('permission:coverage-index');
-        Route::put('/{id}', 'Api\CoverageController@update')->middleware('permission:coverage-edit');
-        Route::delete('/{id}', 'Api\CoverageController@remove')->middleware('permission:coverage-edit');
-    });
-
     Route::prefix('/role')->group(function () {
         Route::get('/', 'Api\RoleController@getList');
     });
