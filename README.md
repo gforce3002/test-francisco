@@ -49,3 +49,11 @@ php artisan test
 * `role:all-permissions {role}` Attaches all permissions to a role
 * `role:attach-permission {role} {permission}` Attaches a permission to a role
 
+## Excercise
+* Create a `/names` route that is secured by login
+* Display a view on it with a `div` that would render a React component
+* The react component should have an input for the name
+* Save the name on a new database table (you can name it as you want)
+* The save should be done through an `axios` call to the API
+* Using sweetalert2 display a success or error message if that's the case
+
