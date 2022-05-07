@@ -42,4 +42,10 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/{id}', 'Api\ApiController@remove');
         Route::post('/', 'Api\ApiController@create');
     });
+
+    Route::prefix('/names')->group(function () {
+        Route::get('/', 'Names\NamesController@show');
+        Route::delete('/{id}', 'Names\NamesController@destroy');
+        Route::post('/', 'Names\NamesController@store');
+    });
 });

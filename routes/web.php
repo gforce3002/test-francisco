@@ -34,6 +34,10 @@ Route::middleware('auth')->group(function() {
         Route::get('/create', 'ApiController@create');
     });
 
+    Route::prefix('/names')->group(function () {
+        Route::get('/', 'NamesController@index');
+    });
+
     Route::get('/profile', 'ProfileController@index');
     Route::get('/password', 'ProfileController@password');
 });

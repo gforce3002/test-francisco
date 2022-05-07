@@ -19,6 +19,12 @@
                         <span> API Keys</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/names">
+                        <i class="fa fa-key"></i>
+                        <span> Names</span>
+                    </a>
+                </li>
 
                 @foreach($menu as $item)
                     <li>

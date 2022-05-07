@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import swal from 'sweetalert2';
 
-class Keys extends Component {
-
-    constructor(props) {
+class Names extends Component{
+    constructor(props){
         super(props);
         this.renderItem = this.renderItem.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -13,12 +12,9 @@ class Keys extends Component {
             data: {}
         };
     }
-
     renderItem(item, key) {
         return <tr key={key}>
             <td>{item.name}</td>
-            <td>{item.id}</td>
-            <td>{item.secret}</td>
             <td className="text-right">
                 <button type="button" className="btn btn-sm btn-danger" onClick={this.remove.bind(this, item)}>
                     <i className="fa fa-trash"></i> Revocar
@@ -27,11 +23,11 @@ class Keys extends Component {
         </tr>
     }
 
-    remove(item) {
+    remove(item){
         let self = this;
         swal.fire({
-            title: "¿Deseas eliminar el key",
-            text: "Una vez realizado, el sistema que lo este usando ya no podrá realizar peticiones, ¿Deseas continuar?",
+            title: "¿Deseas eliminar el el nombre?",
+            text: "Estas seguro de eliminar el nombre, ¿Deseas continuar?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -39,19 +35,18 @@ class Keys extends Component {
         })
             .then((willDelete) => {
                 if (willDelete.value) {
-                    axios.delete('/api/api/' + item.id).then(() => {
+                    axios.delete('/api/names/' + item.id).then((response) => {
                         self.componentWillMount();
                         swal.fire({
                             icon: 'success',
-                            text: 'El key ha sido eliminado correctamente'
+                            text: response.data.Mensaje
                         });
                     });
                 }
             });
-
     }
 
-    handleChange(e) {
+    handleChange(e){
         var target = e.target;
         var data = this.state.data;
         data[target.name] = target.value;
@@ -62,19 +57,31 @@ class Keys extends Component {
 
     componentWillMount() {
         let self = this;
-        axios.get('/api/api').then((response) => {
+        axios.get('/api/names').then((response) => {
+            
             self.setState({
                 items: response.data
             });
         });
     }
 
-    create() {
+    create(){
         let self = this;
-        axios.post('/api/api', this.state.data).then((response) => {
+        axios.post('/api/names', this.state.data).then((response) => {
+            console.log(response)
+            swal.fire({
+                icon: 'success',
+                text: response.data.Mensaje
+            });
             self.componentWillMount();
             $('#createModal').modal('hide');
-        });
+        }); 
+    }
+
+    btnCrearnuevonombre(){
+        $('#name').val('');	
+        this.state.data = {}
+        $('#createModal').modal('show');
     }
 
     render() {
@@ -83,7 +90,7 @@ class Keys extends Component {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title">Crear API Key</h5>
+                            <h5 className="modal-title">Crear nuevo nombre</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -92,7 +99,7 @@ class Keys extends Component {
                             <div className="row">
                                 <div className="col-12 form-group">
                                     <label>Nombre</label>
-                                    <input type="text" name="name" className="form-control" onChange={this.handleChange}/>
+                                    <input type="text" name="name" id="name" className="form-control" onChange={this.handleChange}/>
                                 </div>
                             </div>
                         </div>
@@ -110,10 +117,10 @@ class Keys extends Component {
                     <div className="card-body">
                         <div className="box-header with-border" style={{marginBottom: '15px'}}>
                             <div className="col-12 text-right">
-                                <a href="javascript:;" data-toggle="modal" data-target="#createModal"
+                                <a href="javascript:;" onClick={this.btnCrearnuevonombre.bind(this)}
                                    className="btn btn-success m-t-10">
                                     <i className="fa fa-plus p-r-10"></i>
-                                    &nbsp; Crear API Keys
+                                    &nbsp; Crear nuevo nombre
                                 </a>
                             </div>
                         </div>
@@ -122,8 +129,6 @@ class Keys extends Component {
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Client ID</th>
-                                    <th>Secret</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -137,12 +142,12 @@ class Keys extends Component {
             </section>
         </div>
     }
-}
+}   
 
-export default Keys;
+export default Names;
 
-var element = document.getElementById('api-list');
-console.log(element,"entro al elemento");
-if (element) {
-    ReactDOM.render(<Keys/>, element);
+var element = document.getElementById('names-list');
+//console.log(element,"entro al elemento");
+if(element){
+    ReactDOM.render(<Names/>, element);
 }
